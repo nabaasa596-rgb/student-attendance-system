@@ -1,0 +1,277 @@
+/* =====================================================
+   TEACHERS PAGE
+===================================================== */
+
+.page-container {
+  padding: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-header {
+  margin-bottom: 25px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.page-header p {
+  margin-top: 7px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.form-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.form-card h2 {
+  margin: 0 0 20px;
+  font-size: 21px;
+  color: #1f2937;
+}
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 7px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  background: #ffffff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form-group input::placeholder {
+  color: #9ca3af;
+}
+
+/* =====================================================
+   PRIMARY BUTTON
+===================================================== */
+
+.primary-btn {
+  margin-top: 22px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.primary-btn:hover {
+  background: #1d4ed8;
+}
+
+.primary-btn:active {
+  transform: translateY(1px);
+}
+
+.primary-btn:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   TABLE CARD
+===================================================== */
+
+.table-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* =====================================================
+   TABLE HEADER
+===================================================== */
+
+.table-header {
+  padding: 20px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table-header h2 {
+  margin: 0;
+  font-size: 21px;
+  color: #1f2937;
+}
+
+.count {
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+thead {
+  background: #f9fafb;
+}
+
+th {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+  padding: 15px 18px;
+  font-size: 14px;
+  color: #4b5563;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+tbody tr:hover {
+  background: #f9fafb;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* =====================================================
+   DELETE BUTTON
+===================================================== */
+
+.delete-btn {
+  padding: 7px 13px;
+  border: none;
+  border-radius: 6px;
+  background: #fee2e2;
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: #fecaca;
+}
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.empty-state {
+  padding: 45px 20px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 20px;
+  }
+
+  .page-header h1 {
+    font-size: 25px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: 20px;
+  }
+
+  .table-header {
+    padding: 17px 20px;
+  }
+
+  .table-header h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 15px;
+  }
+
+  .page-header h1 {
+    font-size: 23px;
+  }
+
+  .primary-btn {
+    width: 100%;
+  }
+}

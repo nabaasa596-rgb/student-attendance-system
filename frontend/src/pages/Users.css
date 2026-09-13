@@ -1,0 +1,179 @@
+.users-page {
+  padding: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.users-header h1 {
+  margin: 0;
+  font-size: 30px;
+  color: #1f2937;
+}
+
+.users-header p {
+  margin-top: 7px;
+  color: #6b7280;
+}
+
+.refresh-btn {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.refresh-btn:hover {
+  background: #1d4ed8;
+}
+
+.users-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.users-card-header {
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.users-card-header h2 {
+  margin: 0;
+  font-size: 21px;
+  color: #1f2937;
+}
+
+.user-count {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.users-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.users-table th {
+  padding: 14px 18px;
+  text-align: left;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 13px;
+}
+
+.users-table td {
+  padding: 15px 18px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #4b5563;
+}
+
+.users-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.username {
+  font-weight: 600;
+  color: #1f2937 !important;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.admin-role {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.teacher-role {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.delete-user-btn {
+  padding: 7px 13px;
+  border: none;
+  border-radius: 6px;
+  background: #fee2e2;
+  color: #dc2626;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-user-btn:hover {
+  background: #fecaca;
+}
+
+.protected-text {
+  color: #9ca3af;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.users-message {
+  padding: 50px 20px;
+  text-align: center;
+  color: #6b7280;
+}
+
+@media (max-width: 768px) {
+  .users-page {
+    padding: 20px;
+  }
+
+  .users-header {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .users-header h1 {
+    font-size: 25px;
+  }
+
+  .refresh-btn {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .users-page {
+    padding: 15px;
+  }
+
+  .users-header {
+    flex-direction: column;
+  }
+
+  .refresh-btn {
+    width: 100%;
+  }
+}

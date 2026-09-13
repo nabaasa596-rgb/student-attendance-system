@@ -1,0 +1,93 @@
+.assignments-layout {
+  min-height: 100vh;
+  display: flex;
+  background: #f4f7fb;
+}
+
+.assignments-main {
+  flex: 1;
+  padding: 35px;
+}
+
+.assignments-main p {
+  color: #64748b;
+}
+
+.assignment-form {
+  background: white;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 12px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.assignment-form select,
+.assignment-form button {
+  padding: 12px;
+  border-radius: 7px;
+  border: 1px solid #ddd;
+}
+
+.assignment-form select {
+  flex: 1;
+  min-width: 220px;
+}
+
+.assignment-form button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.assignment-form .cancel-btn {
+  background: #64748b;
+}
+
+.assignments-table-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+.assignments-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.assignments-table-container th,
+.assignments-table-container td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
+
+.edit-btn {
+  background: #2563eb;
+}
+
+.delete-btn {
+  background: #dc2626;
+}
+
+.empty-message {
+  text-align: center;
+  color: #64748b;
+  padding: 20px;
+}

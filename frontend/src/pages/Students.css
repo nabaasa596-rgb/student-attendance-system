@@ -1,0 +1,66 @@
+.students-layout {
+  min-height: 100vh;
+  display: flex;
+  background: #f4f7fb;
+}
+
+.students-main {
+  flex: 1;
+  padding: 35px;
+}
+
+.students-main h1 {
+  margin-bottom: 5px;
+}
+
+.students-main p {
+  color: #64748b;
+}
+
+.student-form {
+  background: white;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.student-form input,
+.student-form select,
+.student-form button {
+  padding: 12px;
+  border-radius: 7px;
+  border: 1px solid #ddd;
+}
+
+.student-form button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.students-table-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #f8fafc;
+}

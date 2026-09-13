@@ -1,0 +1,422 @@
+/* =====================================================
+   GLOBAL STYLES
+===================================================== */
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+
+  --sidebar: #111827;
+  --sidebar-hover: #1f2937;
+
+  --background: #f5f7fb;
+  --card: #ffffff;
+
+  --text: #1f2937;
+  --muted: #6b7280;
+
+  --border: #e5e7eb;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* =====================================================
+   APP LAYOUT
+===================================================== */
+
+.app-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--sidebar);
+  color: #ffffff;
+
+  overflow: hidden;
+
+  z-index: 1000;
+}
+
+/* Sidebar Header */
+
+.sidebar-header {
+  min-height: 70px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 0 16px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 21px;
+
+  border-radius: 9px;
+
+  background: var(--primary);
+}
+
+.sidebar-header h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.sidebar-header span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #9ca3af;
+
+  font-size: 10px;
+}
+
+/* =====================================================
+   SIDEBAR USER
+===================================================== */
+
+.sidebar-user {
+  margin: 12px;
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border-radius: 9px;
+}
+
+.user-avatar {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+
+  color: #ffffff;
+
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.user-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info strong {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #ffffff;
+
+  font-size: 13px;
+}
+
+.user-info span {
+  margin-top: 2px;
+
+  color: #9ca3af;
+
+  font-size: 10px;
+
+  text-transform: capitalize;
+}
+
+/* =====================================================
+   SIDEBAR NAVIGATION
+===================================================== */
+
+.sidebar-nav {
+  flex: 1;
+  min-height: 0;
+
+  padding: 2px 10px 10px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+
+.sidebar-nav::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+/* Section Titles */
+
+.nav-section-title {
+  margin: 13px 9px 5px;
+
+  color: #6b7280;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+}
+
+/* Links */
+
+.sidebar-link {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 9px 11px;
+  margin-bottom: 2px;
+
+  border-radius: 7px;
+
+  color: #d1d5db;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background: var(--sidebar-hover);
+  color: #ffffff;
+}
+
+.sidebar-link.active {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.nav-icon {
+  width: 19px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   SIDEBAR FOOTER
+===================================================== */
+
+.sidebar-footer {
+  padding: 10px 12px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: var(--sidebar);
+}
+
+.logged-in-as {
+  margin-bottom: 7px;
+
+  color: #9ca3af;
+
+  font-size: 10px;
+}
+
+.logged-in-as strong {
+  color: #ffffff;
+}
+
+.logout-btn {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 9px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #dc2626;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: background 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #b91c1c;
+}
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.main-content {
+  width: calc(100% - 250px);
+  min-height: 100vh;
+
+  margin-left: 250px;
+
+  padding: 0;
+
+  background: var(--background);
+
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   GENERAL PAGE SUPPORT
+===================================================== */
+
+.page-container,
+.users-page {
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .main-content {
+    width: calc(100% - 220px);
+    margin-left: 220px;
+  }
+}
+
+@media (max-width: 520px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .main-content {
+    width: calc(100% - 200px);
+    margin-left: 200px;
+  }
+
+  .sidebar-header h2 {
+    font-size: 15px;
+  }
+
+  .sidebar-link {
+    font-size: 12px;
+  }
+
+  .nav-section-title {
+    font-size: 8px;
+  }
+}
