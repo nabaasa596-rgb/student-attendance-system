@@ -352,7 +352,7 @@ button {
 }
 
 /* =====================================================
-   PHONE
+   PHONE LAYOUT
 ===================================================== */
 
 @media (max-width: 600px) {
@@ -363,83 +363,112 @@ button {
     min-height: 100vh;
   }
 
-  /* Sidebar becomes top navigation */
+  /* Compact top navigation */
   .sidebar {
     position: relative;
-
     width: 100%;
     height: auto;
     min-height: 0;
 
-    display: block;
+    display: flex;
+    flex-direction: column;
 
     overflow: visible;
   }
 
+  /* Header */
   .sidebar-header {
-    min-height: 60px;
-    padding: 0 14px;
+    height: 58px;
+    min-height: 58px;
+
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
   }
 
   .logo-icon {
-    width: 34px;
-    height: 34px;
-    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    font-size: 17px;
   }
 
   .sidebar-header h2 {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .sidebar-header span {
+    font-size: 8px;
+  }
+
+  /* User information */
+  .sidebar-user {
+    margin: 6px 10px;
+    padding: 7px 9px;
+  }
+
+  .user-avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .user-info strong {
+    font-size: 12px;
+  }
+
+  .user-info span {
     font-size: 9px;
   }
 
-  .sidebar-user {
-    margin: 8px 12px;
-    padding: 9px;
-  }
-
-  /* Horizontal navigation */
+  /* Navigation becomes one compact horizontal strip */
   .sidebar-nav {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     gap: 5px;
 
-    padding: 4px 10px 10px;
+    padding: 5px 8px 8px;
 
-    overflow: visible;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    white-space: nowrap;
+
+    scrollbar-width: thin;
+  }
+
+  .sidebar-nav::-webkit-scrollbar {
+    height: 4px;
   }
 
   .nav-section-title {
-    width: 100%;
-
-    margin: 7px 5px 1px;
-
-    font-size: 8px;
+    display: none;
   }
 
   .sidebar-link {
     width: auto;
-
     flex: 0 0 auto;
 
-    padding: 8px 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 9px;
     margin: 0;
 
-    border-radius: 7px;
+    border-radius: 6px;
 
-    font-size: 11px;
+    font-size: 10px;
   }
 
-  .sidebar-link .nav-icon {
+  .nav-icon {
     width: auto;
-    font-size: 13px;
+    font-size: 12px;
   }
 
+  /* Footer */
   .sidebar-footer {
-    padding: 8px 12px 10px;
+    padding: 7px 10px;
   }
 
   .logged-in-as {
@@ -447,42 +476,44 @@ button {
   }
 
   .logout-btn {
-    padding: 8px;
-    font-size: 11px;
+    width: 100%;
+    padding: 7px;
+
+    font-size: 10px;
   }
 
-  /* Main area uses full phone width */
+  /* Main content */
   .main-content {
     width: 100%;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 58px);
 
     margin-left: 0;
 
     overflow-x: hidden;
   }
 
-  /* Prevent page content from becoming wider than phone */
   .main-content > * {
     max-width: 100%;
   }
 
-  /* Common spacing */
+  /* Page spacing */
   .page-container,
   .users-page {
     width: 100%;
     max-width: 100%;
+
     margin: 0;
-    padding: 15px;
+    padding: 12px;
   }
 
   /* Headings */
   h1 {
-    font-size: 24px;
+    font-size: 23px;
     line-height: 1.2;
   }
 
   h2 {
-    font-size: 19px;
+    font-size: 18px;
   }
 
   /* Forms */
@@ -493,23 +524,18 @@ button {
     max-width: 100%;
   }
 
-  button {
-    max-width: 100%;
-  }
-
-  /* Tables scroll instead of breaking layout */
-  table {
-    width: 100%;
-  }
-
+  /* Tables */
   .table-container,
   .table-wrapper,
   .users-table-wrapper {
     width: 100%;
     overflow-x: auto;
   }
-}
 
+  table {
+    min-width: 600px;
+  }
+}
 /* =====================================================
    SMALL PHONES
 ===================================================== */
