@@ -100,8 +100,6 @@ button {
   z-index: 1000;
 }
 
-/* Header */
-
 .sidebar-header {
   min-height: 70px;
 
@@ -125,7 +123,6 @@ button {
   flex-shrink: 0;
 
   font-size: 21px;
-
   border-radius: 9px;
   background: var(--primary);
 }
@@ -144,7 +141,9 @@ button {
   font-size: 10px;
 }
 
-/* User */
+/* =====================================================
+   SIDEBAR USER
+===================================================== */
 
 .sidebar-user {
   margin: 12px;
@@ -172,7 +171,6 @@ button {
   background: var(--primary);
 
   color: #ffffff;
-
   font-weight: 700;
   font-size: 14px;
 }
@@ -199,7 +197,9 @@ button {
   text-transform: capitalize;
 }
 
-/* Navigation */
+/* =====================================================
+   SIDEBAR NAVIGATION
+===================================================== */
 
 .sidebar-nav {
   flex: 1;
@@ -249,7 +249,6 @@ button {
   color: #d1d5db;
 
   text-decoration: none;
-
   font-size: 13px;
 
   transition:
@@ -277,13 +276,14 @@ button {
   flex-shrink: 0;
 }
 
-/* Footer */
+/* =====================================================
+   SIDEBAR FOOTER
+===================================================== */
 
 .sidebar-footer {
   padding: 10px 12px;
 
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-
   background: var(--sidebar);
 }
 
@@ -352,20 +352,19 @@ button {
 }
 
 /* =====================================================
-   PHONE LAYOUT
+   PHONE
 ===================================================== */
 
 @media (max-width: 600px) {
-
   .app-layout {
     display: block;
     width: 100%;
     min-height: 100vh;
   }
 
-  /* Compact top navigation */
   .sidebar {
     position: relative;
+
     width: 100%;
     height: auto;
     min-height: 0;
@@ -376,15 +375,10 @@ button {
     overflow: visible;
   }
 
-  /* Header */
   .sidebar-header {
     height: 58px;
     min-height: 58px;
-
     padding: 0 12px;
-
-    display: flex;
-    align-items: center;
   }
 
   .logo-icon {
@@ -401,7 +395,6 @@ button {
     font-size: 8px;
   }
 
-  /* User information */
   .sidebar-user {
     margin: 6px 10px;
     padding: 7px 9px;
@@ -421,7 +414,6 @@ button {
     font-size: 9px;
   }
 
-  /* Navigation becomes one compact horizontal strip */
   .sidebar-nav {
     display: flex;
     align-items: center;
@@ -466,7 +458,6 @@ button {
     font-size: 12px;
   }
 
-  /* Footer */
   .sidebar-footer {
     padding: 7px 10px;
   }
@@ -478,11 +469,9 @@ button {
   .logout-btn {
     width: 100%;
     padding: 7px;
-
     font-size: 10px;
   }
 
-  /* Main content */
   .main-content {
     width: 100%;
     min-height: calc(100vh - 58px);
@@ -496,7 +485,6 @@ button {
     max-width: 100%;
   }
 
-  /* Page spacing */
   .page-container,
   .users-page {
     width: 100%;
@@ -506,7 +494,6 @@ button {
     padding: 12px;
   }
 
-  /* Headings */
   h1 {
     font-size: 23px;
     line-height: 1.2;
@@ -516,7 +503,6 @@ button {
     font-size: 18px;
   }
 
-  /* Forms */
   input,
   select,
   textarea {
@@ -524,7 +510,6 @@ button {
     max-width: 100%;
   }
 
-  /* Tables */
   .table-container,
   .table-wrapper,
   .users-table-wrapper {
@@ -536,39 +521,31 @@ button {
     min-width: 600px;
   }
 }
+
 /* =====================================================
    SMALL PHONES
 ===================================================== */
 
 @media (max-width: 380px) {
-
   .sidebar-header {
     padding: 0 10px;
   }
 
   .sidebar-header h2 {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .sidebar-link {
-    padding: 7px 8px;
-    font-size: 10px;
-  }
-
-  .nav-section-title {
-    font-size: 7px;
-  }
-
-  .sidebar-user {
-    margin: 7px 10px;
+    padding: 6px 8px;
+    font-size: 9px;
   }
 
   .main-content {
-    min-height: calc(100vh - 58px);
+    min-height: calc(100vh - 56px);
   }
 
   .page-container,
   .users-page {
-    padding: 12px;
+    padding: 10px;
   }
 }
