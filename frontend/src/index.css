@@ -332,13 +332,15 @@ button {
 
 .main-content {
   width: calc(100% - 250px);
-  min-height: 100vh;
-
+  height: 100vh;
   margin-left: 250px;
-
   background: var(--background);
 
-  overflow-x: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
+
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 /* =====================================================
@@ -470,19 +472,20 @@ button {
 ===================================================== */
 
 @media (max-width: 600px) {
-  .main-content {
-    width: 100%;
-    height: 100vh;
+ .main-content {
+  width: 100%;
+  height: 100vh;
+  margin-left: 0;
+  padding-top: 60px;
 
-    margin-left: 0;
-    padding-top: 60px;
+  overflow-x: auto;
+  overflow-y: auto;
 
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    -webkit-overflow-scrolling: touch;
-  }
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
+  }
+
  /* =====================================================
    INDEPENDENT PAGE SCROLLING
 ===================================================== */
@@ -506,4 +509,12 @@ button {
   .users-page {
     padding: 10px;
   }
+.table-container,
+.table-wrapper,
+.users-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
 
