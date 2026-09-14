@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const getUser = () => {
     try {
@@ -20,148 +21,206 @@ const Sidebar = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-
     navigate("/");
+  };
+
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
   };
 
   const linkClass = ({ isActive }) =>
     `sidebar-link ${isActive ? "active" : ""}`;
 
   return (
-    <aside className="sidebar">
+    <>
+      {/* MOBILE MENU BUTTON */}
+      <button
+        type="button"
+        className="mobile-menu-button"
+        onClick={() => setMobileOpen(!mobileOpen)}
+        aria-label="Toggle navigation"
+      >
+        ☰
+      </button>
 
-      {/* HEADER */}
-      <div className="sidebar-header">
-        <div className="logo-icon">🎓</div>
+      {/* MOBILE OVERLAY */}
+      {mobileOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={closeMobileMenu}
+        />
+      )}
 
-        <div>
-          <h2>School Manager</h2>
-          <span>Management System</span>
-        </div>
-      </div>
+      <aside
+        className={`sidebar ${
+          mobileOpen ? "sidebar-mobile-open" : ""
+        }`}
+      >
+        <div className="sidebar-header">
+          <div className="logo-icon">🎓</div>
 
-      {/* USER */}
-      <div className="sidebar-user">
-        <div className="user-avatar">
-          {user?.username
-            ? user.username.charAt(0).toUpperCase()
-            : "U"}
-        </div>
+          <div>
+            <h2>School Manager</h2>
+            <span>Management System</span>
+          </div>
 
-        <div className="user-info">
-          <strong>{user?.username || "User"}</strong>
-          <span>{user?.role || "User"}</span>
-        </div>
-      </div>
-
-      {/* NAVIGATION */}
-      <nav className="sidebar-nav">
-
-        <div className="nav-section-title">
-          MAIN
-        </div>
-
-        <NavLink to="/dashboard" className={linkClass}>
-          <span className="nav-icon">📊</span>
-          <span>Dashboard</span>
-        </NavLink>
-
-        {/* ADMIN ONLY */}
-        {isAdmin && (
-          <>
-            <div className="nav-section-title">
-              SCHOOL MANAGEMENT
-            </div>
-
-            <NavLink to="/students" className={linkClass}>
-              <span className="nav-icon">👨‍🎓</span>
-              <span>Students</span>
-            </NavLink>
-
-            <NavLink to="/teachers" className={linkClass}>
-              <span className="nav-icon">👨‍🏫</span>
-              <span>Teachers</span>
-            </NavLink>
-
-            <NavLink to="/classes" className={linkClass}>
-              <span className="nav-icon">🏫</span>
-              <span>Classes</span>
-            </NavLink>
-
-            <NavLink to="/subjects" className={linkClass}>
-              <span className="nav-icon">📚</span>
-              <span>Subjects</span>
-            </NavLink>
-
-            <NavLink to="/assignments" className={linkClass}>
-              <span className="nav-icon">📝</span>
-              <span>Assignments</span>
-            </NavLink>
-          </>
-        )}
-
-        {/* ACADEMIC */}
-        <div className="nav-section-title">
-          ACADEMIC
+          <button
+            type="button"
+            className="mobile-close-button"
+            onClick={closeMobileMenu}
+          >
+            ×
+          </button>
         </div>
 
-        <NavLink to="/timetable" className={linkClass}>
-          <span className="nav-icon">🗓️</span>
-          <span>Timetable</span>
-        </NavLink>
+        <div className="sidebar-user">
+          <div className="user-avatar">
+            {user?.username
+              ? user.username.charAt(0).toUpperCase()
+              : "U"}
+          </div>
 
-        <NavLink to="/attendance" className={linkClass}>
-          <span className="nav-icon">✅</span>
-          <span>Attendance</span>
-        </NavLink>
-
-        {/* ADMIN */}
-        {isAdmin && (
-          <>
-            <div className="nav-section-title">
-              REPORTS & ADMIN
-            </div>
-
-            <NavLink to="/reports" className={linkClass}>
-              <span className="nav-icon">📈</span>
-              <span>Reports</span>
-            </NavLink>
-
-            <NavLink to="/users" className={linkClass}>
-              <span className="nav-icon">👥</span>
-              <span>Users</span>
-            </NavLink>
-          </>
-        )}
-
-      </nav>
-
-      {/* FOOTER */}
-      <div className="sidebar-footer">
-
-        <div className="logged-in-as">
-          Logged in as{" "}
-          <strong>
-            {isAdmin
-              ? "Administrator"
-              : isTeacher
-              ? "Teacher"
-              : "User"}
-          </strong>
+          <div className="user-info">
+            <strong>{user?.username || "User"}</strong>
+            <span>{user?.role || "User"}</span>
+          </div>
         </div>
 
-        <button
-          type="button"
-          className="logout-btn"
-          onClick={handleLogout}
-        >
-          <span>🚪</span>
-          <span>Logout</span>
-        </button>
+        <nav className="sidebar-nav">
+          <div className="nav-section-title">MAIN</div>
 
-      </div>
+          <NavLink
+            to="/dashboard"
+            className={linkClass}
+            onClick={closeMobileMenu}
+          >
+            <span className="nav-icon">📊</span>
+            <span>Dashboard</span>
+          </NavLink>
 
-    </aside>
+          {isAdmin && (
+            <>
+              <div className="nav-section-title">
+                SCHOOL MANAGEMENT
+              </div>
+
+              <NavLink
+                to="/students"
+                className={linkClass}
+                onClick={closeMobileMenu}
+              >
+                <span className="nav-icon">👨‍🎓</span>
+                <span>Students</span>
+              </NavLink>
+
+              <NavLink
+                to="/teachers"
+                className={linkClass}
+                onClick={closeMobileMenu}
+              >
+                <span className="nav-icon">👨‍🏫</span>
+                <span>Teachers</span>
+              </NavLink>
+
+              <NavLink
+                to="/classes"
+                className={linkClass}
+                onClick={closeMobileMenu}
+              >
+                <span className="nav-icon">🏫</span>
+                <span>Classes</span>
+              </NavLink>
+
+              <NavLink
+                to="/subjects"
+                className={linkClass}
+                onClick={closeMobileMenu}
+              >
+                <span className="nav-icon">📚</span>
+                <span>Subjects</span>
+              </NavLink>
+
+              <NavLink
+                to="/assignments"
+                className={linkClass}
+                onClick={closeMobileMenu}
+              >
+                <span className="nav-icon">📝</span>
+                <span>Assignments</span>
+              </NavLink>
+            </>
+          )}
+
+          <div className="nav-section-title">ACADEMIC</div>
+
+          <NavLink
+            to="/timetable"
+            className={linkClass}
+            onClick={closeMobileMenu}
+          >
+            <span className="nav-icon">🗓️</span>
+            <span>Timetable</span>
+          </NavLink>
+
+          <NavLink
+            to="/attendance"
+            className={linkClass}
+            onClick={closeMobileMenu}
+          >
+            <span className="nav-icon">✅</span>
+            <span>Attendance</span>
+          </NavLink>
+
+          {isAdmin && (
+            <>
+              <div className="nav-section-title">
+                REPORTS & ADMIN
+              </div>
+
+              <NavLink
+                to="/reports"
+                className={linkClass}
+                onClick={closeMobileMenu}
+              >
+                <span className="nav-icon">📈</span>
+                <span>Reports</span>
+              </NavLink>
+
+              <NavLink
+                to="/users"
+                className={linkClass}
+                onClick={closeMobileMenu}
+              >
+                <span className="nav-icon">👥</span>
+                <span>Users</span>
+              </NavLink>
+            </>
+          )}
+        </nav>
+
+        <div className="sidebar-footer">
+          <div className="logged-in-as">
+            Logged in as{" "}
+            <strong>
+              {isAdmin
+                ? "Administrator"
+                : isTeacher
+                ? "Teacher"
+                : "User"}
+            </strong>
+          </div>
+
+          <button
+            type="button"
+            className="logout-btn"
+            onClick={handleLogout}
+          >
+            <span>🚪</span>
+            <span>Logout</span>
+          </button>
+        </div>
+      </aside>
+    </>
   );
 };
 
