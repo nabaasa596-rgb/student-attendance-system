@@ -1,3 +1,4 @@
+
 import axios from "axios";
 
 const API_BASE_URL =
@@ -10,6 +11,7 @@ const API = axios.create({
   },
 });
 
+// Attach login token to every request
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
@@ -21,12 +23,18 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
+// Only remove the session when the token is actually
+
+// missing, invalid, or expired.
+
+// DO NOT logout on 403 because 403 means "permission denied".
 API.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401 || error.response?.status === 403) {
+    if (error.response?.status === 401) {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
+      window.location.href = "/";
     }
 
     return Promise.reject(error);

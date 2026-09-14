@@ -52,7 +52,7 @@ app.get("/", (req, res) => {
 app.get(
     "/api/students",
     authenticateToken,
-    authorizeRoles("admin"),
+    authorizeRoles("admin","teacher"),
     (req, res) => {
 
         const sql = `
@@ -87,7 +87,7 @@ app.get(
 app.post(
     "/api/students",
     authenticateToken,
-    authorizeRoles("admin"),
+    authorizeRoles("admin","teacher"),
     (req, res) => {
 
         const {
@@ -135,7 +135,7 @@ app.post(
 app.put(
     "/api/students/:id",
     authenticateToken,
-    authorizeRoles("admin"),
+    authorizeRoles("admin","teacher"),
     (req, res) => {
 
         const { id } = req.params;
@@ -200,7 +200,7 @@ app.put(
 app.delete(
     "/api/students/:id",
     authenticateToken,
-    authorizeRoles("admin"),
+    authorizeRoles("admin","teacher"),
     (req, res) => {
 
         const { id } = req.params;
@@ -618,7 +618,7 @@ app.delete(
 app.get(
     "/api/classes",
     authenticateToken,
-    authorizeRoles("admin"),
+    authorizeRoles("admin","teacher"),
     (req, res) => {
 
         const sql = `
@@ -799,7 +799,7 @@ app.delete(
 app.get(
     "/api/subjects",
     authenticateToken,
-    authorizeRoles("admin"),
+    authorizeRoles("admin", "teacher"),
     (req, res) => {
 
         const sql = `
