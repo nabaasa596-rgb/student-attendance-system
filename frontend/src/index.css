@@ -39,7 +39,7 @@ body {
   width: 100%;
   min-height: 100%;
 
-  overflow: hidden;
+  overflow: auto;
 }
 
 
@@ -47,7 +47,7 @@ body {
 body {
   background: var(--background);
   color: var(--text);
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 button,
@@ -446,7 +446,7 @@ button {
 
   .sidebar-nav {
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: auto;
   }
 
   .nav-section-title {
@@ -498,7 +498,7 @@ button {
 
   background: var(--background);
 
-  overflow-x: hidden;
+  overflow-x: auto;
   overflow-y: auto;
 
   -webkit-overflow-scrolling: touch;
@@ -514,7 +514,7 @@ button {
 .users-table-wrapper {
   width: 100%;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
