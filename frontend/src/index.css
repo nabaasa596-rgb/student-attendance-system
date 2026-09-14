@@ -88,7 +88,7 @@ button {
 ===================================================== */
 
 .sidebar {
-  width: 250px;
+  width: 100px;
   height: 100vh;
 
   position: fixed;
@@ -101,7 +101,7 @@ button {
   background: var(--sidebar);
   color: #ffffff;
 
-  overflow: hidden;
+  overflow: auto;
   z-index: 1000;
 }
 
