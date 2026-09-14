@@ -347,7 +347,7 @@ button {
    TABLET
 ===================================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .sidebar {
     width: 220px;
   }
@@ -407,7 +407,7 @@ button {
     top: 0;
     left: 0;
 
-    width: 270px;
+    width: 100px;
     height: 100vh;
 
     transform: translateX(-100%);
@@ -434,7 +434,7 @@ button {
   }
 
   .sidebar-overlay {
-    position: fixed;
+    position: auto;
     inset: 0;
 
     display: block;
@@ -454,7 +454,7 @@ button {
   }
 
   .sidebar-link {
-    width: 100%;
+    width: 50%;
     font-size: 13px;
   }
 
