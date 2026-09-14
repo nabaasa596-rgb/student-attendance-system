@@ -31,13 +31,18 @@
 * {
   box-sizing: border-box;
 }
-
 html,
 body {
   margin: 0;
   padding: 0;
+
+  width: 100%;
   min-height: 100%;
+
+  overflow: hidden;
 }
+
+
 
 body {
   background: var(--background);
@@ -347,7 +352,11 @@ button {
 
   .main-content {
     width: calc(100% - 220px);
+    height: 100vh;
     margin-left: 220px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }
 
@@ -460,23 +469,38 @@ button {
    SMALL PHONES
 ===================================================== */
 
-@media (max-width: 380px) {
-  .sidebar-header {
-    padding: 0 10px;
-  }
-
-  .sidebar-header h2 {
-    font-size: 13px;
-  }
-
-  .sidebar-link {
-    padding: 6px 8px;
-    font-size: 9px;
-  }
-
+@media (max-width: 600px) {
   .main-content {
-    min-height: calc(100vh - 56px);
+    width: 100%;
+    height: 100vh;
+
+    margin-left: 0;
+    padding-top: 60px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch;
   }
+}
+ /* =====================================================
+   INDEPENDENT PAGE SCROLLING
+===================================================== */
+
+.main-content {
+  width: calc(100% - 250px);
+  height: 100vh;
+
+  margin-left: 250px;
+
+  background: var(--background);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
 
   .page-container,
   .users-page {
