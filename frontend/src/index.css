@@ -187,7 +187,7 @@ button {
 }
 
 .user-info strong {
-  overflow: hidden;
+  overflow: auto;
   text-overflow: ellipsis;
   white-space: nowrap;
 
@@ -213,7 +213,7 @@ button {
   padding: 2px 10px 10px;
 
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 .sidebar-nav::-webkit-scrollbar {
@@ -226,7 +226,7 @@ button {
 
 .sidebar-nav::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .nav-section-title {
@@ -240,7 +240,7 @@ button {
 }
 
 .sidebar-link {
-  width: 100%;
+  width: 60%;
 
   display: flex;
   align-items: center;
@@ -313,7 +313,7 @@ button {
   padding: 9px;
 
   border: none;
-  border-radius: 7px;
+  border-radius: 10px;
 
   background: #dc2626;
   color: #ffffff;
