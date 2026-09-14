@@ -1,3 +1,4 @@
+```css
 /* =====================================================
    GLOBAL STYLES
 ===================================================== */
@@ -5,16 +6,12 @@
 :root {
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
-
   --sidebar: #111827;
   --sidebar-hover: #1f2937;
-
   --background: #f5f7fb;
   --card: #ffffff;
-
   --text: #1f2937;
   --muted: #6b7280;
-
   --border: #e5e7eb;
 
   font-family:
@@ -45,6 +42,7 @@ body {
 body {
   background: var(--background);
   color: var(--text);
+  overflow-x: hidden;
 }
 
 button,
@@ -99,11 +97,10 @@ button {
   color: #ffffff;
 
   overflow: hidden;
-
   z-index: 1000;
 }
 
-/* Sidebar Header */
+/* Header */
 
 .sidebar-header {
   min-height: 70px;
@@ -125,35 +122,29 @@ button {
   align-items: center;
   justify-content: center;
 
+  flex-shrink: 0;
+
   font-size: 21px;
 
   border-radius: 9px;
-
   background: var(--primary);
 }
 
 .sidebar-header h2 {
   margin: 0;
-
   color: #ffffff;
-
   font-size: 17px;
   font-weight: 700;
 }
 
 .sidebar-header span {
   display: block;
-
   margin-top: 2px;
-
   color: #9ca3af;
-
   font-size: 10px;
 }
 
-/* =====================================================
-   SIDEBAR USER
-===================================================== */
+/* User */
 
 .sidebar-user {
   margin: 12px;
@@ -164,7 +155,6 @@ button {
   gap: 10px;
 
   background: rgba(255, 255, 255, 0.06);
-
   border-radius: 9px;
 }
 
@@ -179,7 +169,6 @@ button {
   flex-shrink: 0;
 
   border-radius: 50%;
-
   background: var(--primary);
 
   color: #ffffff;
@@ -190,35 +179,27 @@ button {
 
 .user-info {
   min-width: 0;
-
   display: flex;
   flex-direction: column;
 }
 
 .user-info strong {
   overflow: hidden;
-
   text-overflow: ellipsis;
   white-space: nowrap;
 
   color: #ffffff;
-
   font-size: 13px;
 }
 
 .user-info span {
   margin-top: 2px;
-
   color: #9ca3af;
-
   font-size: 10px;
-
   text-transform: capitalize;
 }
 
-/* =====================================================
-   SIDEBAR NAVIGATION
-===================================================== */
+/* Navigation */
 
 .sidebar-nav {
   flex: 1;
@@ -229,8 +210,6 @@ button {
   overflow-y: auto;
   overflow-x: hidden;
 }
-
-/* Scrollbar */
 
 .sidebar-nav::-webkit-scrollbar {
   width: 5px;
@@ -245,8 +224,6 @@ button {
   border-radius: 10px;
 }
 
-/* Section Titles */
-
 .nav-section-title {
   margin: 13px 9px 5px;
 
@@ -254,11 +231,8 @@ button {
 
   font-size: 9px;
   font-weight: 700;
-
   letter-spacing: 0.8px;
 }
-
-/* Links */
 
 .sidebar-link {
   width: 100%;
@@ -303,9 +277,7 @@ button {
   flex-shrink: 0;
 }
 
-/* =====================================================
-   SIDEBAR FOOTER
-===================================================== */
+/* Footer */
 
 .sidebar-footer {
   padding: 10px 12px;
@@ -317,9 +289,7 @@ button {
 
 .logged-in-as {
   margin-bottom: 7px;
-
   color: #9ca3af;
-
   font-size: 10px;
 }
 
@@ -341,13 +311,10 @@ button {
   border-radius: 7px;
 
   background: #dc2626;
-
   color: #ffffff;
 
   font-size: 12px;
   font-weight: 600;
-
-  transition: background 0.2s ease;
 }
 
 .logout-btn:hover {
@@ -364,30 +331,16 @@ button {
 
   margin-left: 250px;
 
-  padding: 0;
-
   background: var(--background);
 
   overflow-x: hidden;
 }
 
 /* =====================================================
-   GENERAL PAGE SUPPORT
+   TABLET
 ===================================================== */
 
-.page-container,
-.users-page {
-  width: 100%;
-  max-width: 1400px;
-
-  margin: 0 auto;
-}
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .sidebar {
     width: 220px;
   }
@@ -398,25 +351,198 @@ button {
   }
 }
 
-@media (max-width: 520px) {
-  .sidebar {
-    width: 200px;
+/* =====================================================
+   PHONE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .app-layout {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
   }
 
-  .main-content {
-    width: calc(100% - 200px);
-    margin-left: 200px;
+  /* Sidebar becomes top navigation */
+  .sidebar {
+    position: relative;
+
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    display: block;
+
+    overflow: visible;
+  }
+
+  .sidebar-header {
+    min-height: 60px;
+    padding: 0 14px;
+  }
+
+  .logo-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
   }
 
   .sidebar-header h2 {
     font-size: 15px;
   }
 
-  .sidebar-link {
-    font-size: 12px;
+  .sidebar-header span {
+    font-size: 9px;
+  }
+
+  .sidebar-user {
+    margin: 8px 12px;
+    padding: 9px;
+  }
+
+  /* Horizontal navigation */
+  .sidebar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+
+    padding: 4px 10px 10px;
+
+    overflow: visible;
   }
 
   .nav-section-title {
+    width: 100%;
+
+    margin: 7px 5px 1px;
+
     font-size: 8px;
+  }
+
+  .sidebar-link {
+    width: auto;
+
+    flex: 0 0 auto;
+
+    padding: 8px 9px;
+    margin: 0;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+  }
+
+  .sidebar-link .nav-icon {
+    width: auto;
+    font-size: 13px;
+  }
+
+  .sidebar-footer {
+    padding: 8px 12px 10px;
+  }
+
+  .logged-in-as {
+    display: none;
+  }
+
+  .logout-btn {
+    padding: 8px;
+    font-size: 11px;
+  }
+
+  /* Main area uses full phone width */
+  .main-content {
+    width: 100%;
+    min-height: calc(100vh - 60px);
+
+    margin-left: 0;
+
+    overflow-x: hidden;
+  }
+
+  /* Prevent page content from becoming wider than phone */
+  .main-content > * {
+    max-width: 100%;
+  }
+
+  /* Common spacing */
+  .page-container,
+  .users-page {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 15px;
+  }
+
+  /* Headings */
+  h1 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 19px;
+  }
+
+  /* Forms */
+  input,
+  select,
+  textarea {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  button {
+    max-width: 100%;
+  }
+
+  /* Tables scroll instead of breaking layout */
+  table {
+    width: 100%;
+  }
+
+  .table-container,
+  .table-wrapper,
+  .users-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+  .sidebar-header {
+    padding: 0 10px;
+  }
+
+  .sidebar-header h2 {
+    font-size: 14px;
+  }
+
+  .sidebar-link {
+    padding: 7px 8px;
+    font-size: 10px;
+  }
+
+  .nav-section-title {
+    font-size: 7px;
+  }
+
+  .sidebar-user {
+    margin: 7px 10px;
+  }
+
+  .main-content {
+    min-height: calc(100vh - 58px);
+  }
+
+  .page-container,
+  .users-page {
+    padding: 12px;
   }
 }
