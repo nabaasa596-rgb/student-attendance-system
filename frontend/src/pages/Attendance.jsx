@@ -1,8 +1,7 @@
+
 import { useEffect, useState } from "react";
 import API from "../services/api";
-import Sidebar from "../components/Sidebar";
 import "./Attendance.css";
-
 
 function Attendance() {
   const [timetable, setTimetable] = useState([]);
@@ -66,10 +65,10 @@ function Attendance() {
   };
 
   const changeStatus = (studentId, status) => {
-    setAttendance({
-      ...attendance,
+    setAttendance((previous) => ({
+      ...previous,
       [studentId]: status,
-    });
+    }));
   };
 
   const markAll = (status) => {
@@ -88,6 +87,11 @@ function Attendance() {
       return;
     }
 
+    if (students.length === 0) {
+      alert("No students found for this lesson.");
+      return;
+    }
+
     try {
       for (const student of students) {
         await API.post("/attendance", {
@@ -100,9 +104,11 @@ function Attendance() {
 
       alert("Attendance saved successfully!");
     } catch (error) {
-      console.error(error);
+      console.error("Error saving attendance:", error);
+
       alert(
-        "Attendance could not be saved. Some records may already exist."
+        error.response?.data?.error ||
+          "Attendance could not be saved. Some records may already exist."
       );
     }
   };
@@ -113,8 +119,6 @@ function Attendance() {
 
   return (
     <div className="attendance-layout">
-      <Sidebar />
-
       <main className="attendance-main">
         <div className="attendance-header">
           <div>
@@ -125,8 +129,10 @@ function Attendance() {
 
         <section className="attendance-controls">
           <div>
-            <label>Date</label>
+            <label htmlFor="attendance-date">Date</label>
+
             <input
+              id="attendance-date"
               type="date"
               value={attendanceDate}
               onChange={(e) => setAttendanceDate(e.target.value)}
@@ -134,9 +140,10 @@ function Attendance() {
           </div>
 
           <div className="lesson-select">
-            <label>Select Lesson</label>
+            <label htmlFor="lesson-select">Select Lesson</label>
 
             <select
+              id="lesson-select"
               value={selectedLesson}
               onChange={handleLessonChange}
             >
@@ -180,11 +187,17 @@ function Attendance() {
         {students.length > 0 && (
           <>
             <div className="attendance-actions">
-              <button onClick={() => markAll("Present")}>
+              <button
+                type="button"
+                onClick={() => markAll("Present")}
+              >
                 ✓ Mark All Present
               </button>
 
-              <button onClick={() => markAll("Absent")}>
+              <button
+                type="button"
+                onClick={() => markAll("Absent")}
+              >
                 ✕ Mark All Absent
               </button>
             </div>
@@ -218,6 +231,7 @@ function Attendance() {
                             "Excused",
                           ].map((status) => (
                             <button
+                              type="button"
                               key={status}
                               className={
                                 attendance[student.student_id] ===
@@ -244,6 +258,7 @@ function Attendance() {
             </div>
 
             <button
+              type="button"
               className="save-attendance-btn"
               onClick={saveAttendance}
             >
@@ -255,7 +270,9 @@ function Attendance() {
         {!selectedLesson && (
           <div className="empty-attendance">
             <h2>📝 Attendance Ready</h2>
-            <p>Select a lesson above to load its students.</p>
+            <p>
+              Select a lesson above to load its students.
+            </p>
           </div>
         )}
       </main>
